@@ -17,7 +17,9 @@ abstract class Person
     protected string $name;
 
     /**
-     * Child constructor.
+     * Constructor.
+     * @param string $name
+     * @param int $age
      */
     public function __construct(string $name, int $age)
     {
@@ -28,7 +30,7 @@ abstract class Person
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return "{$this->name}, {$this->age}";
     }
@@ -53,7 +55,8 @@ abstract class Person
     }
 
     /**
-     * @return Child
+     * @param int $age
+     * @return self
      */
     public function setAge(int $age): self
     {

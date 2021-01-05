@@ -33,6 +33,7 @@ final class Adult extends Person
 
     /**
      * @param Child[] $children
+     * @return Adult
      */
     public function setChildren(array $children): self
     {
