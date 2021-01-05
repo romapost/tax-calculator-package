@@ -12,8 +12,8 @@ trait TaxAgeRate
 {
     public function checkAgeRate(): void
     {
-        if ($this->getPerson()->getAge() > 50) {
-            $this->salary->setAmount($this->salary->getAmount() + ($this->salary->getAmount() * 0.07));
+        if ($this->calculator->getPerson()->getAge() > 50) {
+            $this->calculator->getSalary()->setAmount($this->calculator->getSalary()->getAmount() + ( $this->calculator->getSalary()->getAmount() * 0.07));
         }
     }
 }

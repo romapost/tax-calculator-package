@@ -36,5 +36,9 @@ class CalculatorTest extends TestCase
             new Child('Child2', 16),
         ]);
         $calculator->setPerson($person)->calc(new Salary(5000));
+
+        //TODO: везде if (preg_match('/^[0-9]{9}$/', $number) !== 1) {
+        //            throw new \DomainException('Invalid SIREN number');
+        //         }
     }
 }
