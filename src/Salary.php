@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Realforce\Finance;
 
+/**
+ * Class Salary
+ * @package Realforce\Finance
+ */
 final class Salary
 {
     private float $amount;
@@ -18,6 +22,9 @@ final class Salary
         $this->amount = $salary;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return "{$this->amount}, {$this->currency}";

@@ -6,6 +6,10 @@ namespace Realforce\Finance;
 
 use Realforce\Finance\Base\Person;
 
+/**
+ * Class Adult
+ * @package Realforce\Finance
+ */
 final class Adult extends Person
 {
     /**

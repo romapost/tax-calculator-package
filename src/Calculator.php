@@ -7,6 +7,10 @@ namespace Realforce\Finance;
 use Realforce\Finance\Traits\TaxAgeRate;
 use Realforce\Finance\Traits\TaxChildrenRate;
 
+/**
+ * Class Calculator
+ * @package Realforce\Finance
+ */
 final class Calculator
 {
     use TaxAgeRate;

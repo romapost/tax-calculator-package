@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Realforce\Finance\Traits;
 
+/**
+ * Trait TaxAgeRate
+ * @package Realforce\Finance\Traits
+ */
 trait TaxAgeRate
 {
     public function checkAgeRate(): void

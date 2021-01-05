@@ -6,6 +6,10 @@ namespace Realforce\Finance\Base;
 
 use Realforce\Finance\Child;
 
+/**
+ * Class Person
+ * @package Realforce\Finance\Base
+ */
 abstract class Person
 {
     protected int $age;
@@ -21,6 +25,9 @@ abstract class Person
         $this->age = $age;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return "{$this->name}, {$this->age}";
