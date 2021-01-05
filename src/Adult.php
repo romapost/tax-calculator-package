@@ -29,27 +29,21 @@ final class Adult extends Person
 
     /**
      * @param Child[] $children
-     * @return Adult
      */
-    public function setChildren(array $children): Adult
+    public function setChildren(array $children): self
     {
         $this->children = $children;
         return $this;
     }
 
-    /**
-     * @return int
-     */
+
     public function getAge(): int
     {
         return $this->age;
     }
 
-    /**
-     * @param int $age
-     * @return Adult
-     */
-    public function setAge(int $age): Adult
+
+    public function setAge(int $age): self
     {
         $this->age = $age;
         return $this;

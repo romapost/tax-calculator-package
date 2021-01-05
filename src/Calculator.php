@@ -4,49 +4,65 @@ declare(strict_types=1);
 
 namespace Realforce\Finance;
 
+use Realforce\Finance\Traits\TaxAgeRate;
+use Realforce\Finance\Traits\TaxChildrenRate;
+
 final class Calculator
 {
-    private Adult $person;
-    private int $tax_country = 20;
+    use TaxAgeRate;
+    use TaxChildrenRate;
 
-    /**
-     * @return Adult
-     */
+    private float $tax_rate = 0.2;
+
+    private Adult $person;
+
+    private Salary $salary;
+
+
+    public function getSalary(): Salary
+    {
+        return $this->salary;
+    }
+
+
+    public function setSalary(Salary $salary): self
+    {
+        $this->salary = $salary;
+        return $this;
+    }
+
+
     public function getPerson(): Adult
     {
         return $this->person;
     }
 
-    /**
-     * @param Adult $person
-     * @return Calculator
-     */
-    public function setPerson(Adult $person): Calculator
+
+    public function setPerson(Adult $person): self
     {
         $this->person = $person;
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getTaxCountry(): int
+
+    public function getTaxRate(): float
     {
-        return $this->tax_country;
+        return $this->tax_rate;
     }
 
-    /**
-     * @param int $tax_country
-     * @return Calculator
-     */
-    public function setTaxCountry(int $tax_country): Calculator
+
+    public function setTaxRate(float $tax_rate): self
     {
-        $this->tax_country = $tax_country;
+        $this->tax_rate = $tax_rate;
         return $this;
     }
 
-    public function calc(Salary $oSalary)
+    public function calc(Salary $salary) : float
     {
-        return $oSalary->getSalary() * (1 - $this->getTaxCountry() / 100);
+        $this->salary = $salary;
+        $this->checkAgeRate();
+        $this->checkChildrenRate();
+
+        return $this->salary->getAmount() * $this->getTaxRate();
     }
 }

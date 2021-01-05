@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Realforce\Finance\Base;
 
 use Realforce\Finance\Child;
@@ -11,27 +13,7 @@ abstract class Person
     protected string $name;
 
     /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     * @return Person
-     */
-    public function setName(string $name): Person
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
      * Child constructor.
-     * @param string $name
-     * @param int $age
      */
     public function __construct(string $name, int $age)
     {
@@ -39,26 +21,36 @@ abstract class Person
         $this->age = $age;
     }
 
-    /**
-     * @return int
-     */
+    public function __toString()
+    {
+        return "{$this->name}, {$this->age}";
+    }
+
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+
     public function getAge(): int
     {
         return $this->age;
     }
 
     /**
-     * @param int $age
      * @return Child
      */
-    public function setAge(int $age): Person
+    public function setAge(int $age): self
     {
         $this->age = $age;
         return $this;
-    }
-
-    public function __toString()
-    {
-        return "{$this->name}, {$this->age}";
     }
 }

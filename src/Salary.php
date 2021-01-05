@@ -6,25 +6,31 @@ namespace Realforce\Finance;
 
 final class Salary
 {
-    private float $salary;
+    private float $amount;
+
+    private string $currency = 'USD';
 
     /**
      * Salary constructor.
-     * @param float $salary
      */
     public function __construct(float $salary)
     {
-        $this->salary = $salary;
+        $this->amount = $salary;
     }
 
-    public function getSalary(): float
+    public function __toString()
     {
-        return $this->salary;
+        return "{$this->amount}, {$this->currency}";
     }
 
-    public function setSalary(float $salary): self
+    public function getAmount(): float
     {
-        $this->salary = $salary;
+        return $this->amount;
+    }
+
+    public function setAmount(float $amount): self
+    {
+        $this->amount = $amount;
         return $this;
     }
 }
