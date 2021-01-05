@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Realforce\Finance;
 
+use Realforce\Finance\Base\Person;
 
-class Person
+final class Adult extends Person
 {
-    private int $age;
-
     /**
      * @var Child[]
      */
     private array $children;
 
-    public function __construct(int $age, array $children)
+    public function __construct(string $name, int $age, array $children)
     {
-        $this->age  = $age;
+        parent::__construct($age);
         $this->children = $children;
     }
 
@@ -30,9 +29,9 @@ class Person
 
     /**
      * @param Child[] $children
-     * @return Person
+     * @return Adult
      */
-    public function setChildren(array $children): Person
+    public function setChildren(array $children): Adult
     {
         $this->children = $children;
         return $this;
@@ -48,9 +47,9 @@ class Person
 
     /**
      * @param int $age
-     * @return Person
+     * @return Adult
      */
-    public function setAge(int $age): Person
+    public function setAge(int $age): Adult
     {
         $this->age = $age;
         return $this;

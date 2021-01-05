@@ -6,22 +6,22 @@ namespace Realforce\Finance;
 
 final class Calculator
 {
-    private Person $person;
+    private Adult $person;
     private int $tax_country = 20;
 
     /**
-     * @return Person
+     * @return Adult
      */
-    public function getPerson(): Person
+    public function getPerson(): Adult
     {
         return $this->person;
     }
 
     /**
-     * @param Person $person
+     * @param Adult $person
      * @return Calculator
      */
-    public function setPerson(Person $person): Calculator
+    public function setPerson(Adult $person): Calculator
     {
         $this->person = $person;
         return $this;
