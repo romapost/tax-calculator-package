@@ -5,8 +5,11 @@
         "php": "^7.4"
     },
     "autoload": {
+        "classmap": [
+            "src/"
+        ],
         "psr-4": {
-            "Namespace\\": "src/"
+            "Realforce\\Finance\\": "src/"
         }
     },
     "autoload-dev": {
