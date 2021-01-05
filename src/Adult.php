@@ -15,7 +15,7 @@ final class Adult extends Person
 
     public function __construct(string $name, int $age, array $children)
     {
-        parent::__construct($age);
+        parent::__construct($name, $age);
         $this->children = $children;
     }
 
