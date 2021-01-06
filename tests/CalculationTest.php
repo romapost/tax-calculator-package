@@ -64,7 +64,7 @@ class CalculationTest extends TestCase
         $salary = $this->calculator->setPerson($person)->calc(new Salary(6000));
 
         $this->assertIsFloat($salary);
-        $this->assertEqualsWithDelta(4800, $salary, 0.001);
+        $this->assertEqualsWithDelta(4400, $salary, 0.001);
 
         dump($salary);
 
@@ -72,7 +72,7 @@ class CalculationTest extends TestCase
         $person->setUseCompanyCar(true);
         $salary = $this->calculator->setPerson($person)->calc(new Salary(4000));
         $this->assertIsFloat($salary);
-        $this->assertEqualsWithDelta(3424, $salary, 0.001);
+        $this->assertEqualsWithDelta(3024, $salary, 0.001);
 
         dump($salary);
 
@@ -84,7 +84,7 @@ class CalculationTest extends TestCase
         $person->setUseCompanyCar(true);
         $salary = $this->calculator->setPerson($person)->calc(new Salary(5000));
         $this->assertIsFloat($salary);
-        $this->assertEqualsWithDelta(4020, $salary, 0.001);
+        $this->assertEqualsWithDelta(3618, $salary, 0.001);
 
         dump($salary);
     }
