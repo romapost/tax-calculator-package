@@ -31,6 +31,7 @@ composer install
 ```php
 $calculator = new Calculation();
 $person = new Adult('Alice', 26, [new Child('Child1', 3), new Child('Child2', 5)]);
+$person->setUseCompanyCar(true);
 $salary = $calculator->setPerson($person)->calc(new Salary(6000));
 ```
 
