@@ -26,8 +26,13 @@ composer install
 ```
 
 ## Usage
+#### `Realforce\Finance\Calculation`
 
-Please describe how to use library
+```php
+$calculator = new Calculation();
+$person = new Adult('Alice', 26, [new Child('Child1', 3), new Child('Child2', 5)]);
+$salary = $calculator->setPerson($person)->calc(new Salary(6000));
+```
 
 ## Dependencies
 
