@@ -16,7 +16,7 @@ class TaxFactory
         try {
             return self::newClass($className);
         } catch (FactoryClassNotFoundException $e) {
-
+            throw  new \RuntimeException();
         }
     }
 
