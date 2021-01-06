@@ -16,6 +16,7 @@ final class Salary
 
     /**
      * Salary constructor.
+     * @param float $salary
      */
     public function __construct(float $salary)
     {
@@ -25,7 +26,7 @@ final class Salary
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return "{$this->amount}, {$this->currency}";
     }

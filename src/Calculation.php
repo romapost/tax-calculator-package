@@ -14,7 +14,10 @@ use Realforce\Finance\Traits\TaxChildrenRate;
  */
 final class Calculation
 {
-    const TAX_RATE_CLASS = TaxCountryRate::class;
+    /**
+     * Tax country class
+     */
+    private const TAX_RATE_CLASS = TaxCountryRate::class;
 
     /**
      * @var Adult
@@ -29,12 +32,21 @@ final class Calculation
         return $this->person;
     }
 
+    /**
+     * @param Adult $person
+     * @return $this
+     */
     public function setPerson(Adult $person): self
     {
         $this->person = $person;
         return $this;
     }
 
+    /**
+     * Calc method
+     * @param Salary $salary
+     * @return float
+     */
     final public function calc(Salary $salary): float
     {
         $className = self::TAX_RATE_CLASS;
