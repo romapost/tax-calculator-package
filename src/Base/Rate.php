@@ -6,6 +6,7 @@ namespace Realforce\Finance\Base;
 
 use Realforce\Finance\Calculation;
 use Realforce\Finance\Interfaces\IRate;
+use Realforce\Finance\Salary;
 
 /**
  * Class Rate
@@ -13,5 +14,5 @@ use Realforce\Finance\Interfaces\IRate;
  */
 abstract class Rate implements IRate
 {
-    abstract public function calc(Calculation $calculator): float;
+    abstract public function calc(Person $person, Salary $salary): float;
 }

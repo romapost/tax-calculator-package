@@ -14,7 +14,7 @@ trait TaxChildrenRate
 {
     public function checkChildrenRate(): void
     {
-        if (count($this->calculator->getPerson()->getChildren()) > 2) {
+        if (count($this->getPerson()->getChildren()) > 2) {
             $newTaxRate = $this->getTaxRate() - Percentage::of(2, $this->getTaxRate());
             $this->setTaxRate($newTaxRate);
         }

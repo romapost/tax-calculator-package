@@ -20,32 +20,12 @@ final class Calculation
     private Adult $person;
 
     /**
-     * @var Salary
-     */
-    private Salary $salary;
-
-    /**
-     * @return Salary
-     */
-    public function getSalary(): Salary
-    {
-        return $this->salary;
-    }
-
-    public function setSalary(Salary $salary): self
-    {
-        $this->salary = $salary;
-        return $this;
-    }
-
-    /**
      * @return Adult
      */
     public function getPerson(): Adult
     {
         return $this->person;
     }
-
 
     public function setPerson(Adult $person): self
     {
@@ -56,8 +36,6 @@ final class Calculation
 
     final public function calc(Salary $salary): float
     {
-        $this->setSalary($salary);
-
-        return (new TaxCountryRate())->calc($this);
+        return (new TaxCountryRate())->calc($this->getPerson(), $salary);
     }
 }

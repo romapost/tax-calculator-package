@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Realforce\Finance\Interfaces;
 
+use Realforce\Finance\Base\Person;
 use Realforce\Finance\Calculation;
+use Realforce\Finance\Salary;
 
 /**
  * Interface IRate
@@ -12,5 +14,5 @@ use Realforce\Finance\Calculation;
  */
 interface IRate
 {
-    public function calc(Calculation $calculator): float;
+    public function calc(Person $person, Salary $salary): float;
 }
