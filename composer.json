@@ -2,7 +2,8 @@
     "name": "romapost/tax-calculator-package",
     "description": "Library to realise your application's tax salary calculations",
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "mattiasgeniar/php-percentages": "^1.1"
     },
     "autoload": {
         "classmap": [
@@ -28,7 +29,7 @@
     "scripts": {
         "checkcode": "phpcs src tests --standard=PSR12",
         "fixcode": "phpcbf src tests --standard=PSR12",
-        "test": "phpunit",
+        "test": "phpunit --debug",
         "tests": "phpunit",
         "test-coverage": "phpunit --coverage-html build/coverage",
         "check-cs": "ecs check src tests --ansi",

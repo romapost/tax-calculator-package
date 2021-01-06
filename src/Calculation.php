@@ -12,7 +12,7 @@ use Realforce\Finance\Traits\TaxChildrenRate;
  * Class Calculator
  * @package Realforce\Finance
  */
-final class Calculator
+final class Calculation
 {
     /**
      * @var Adult
@@ -24,7 +24,9 @@ final class Calculator
      */
     private Salary $salary;
 
-
+    /**
+     * @return Salary
+     */
     public function getSalary(): Salary
     {
         return $this->salary;
@@ -36,7 +38,9 @@ final class Calculator
         return $this;
     }
 
-
+    /**
+     * @return Adult
+     */
     public function getPerson(): Adult
     {
         return $this->person;

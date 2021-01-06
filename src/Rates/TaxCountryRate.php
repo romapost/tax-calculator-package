@@ -4,21 +4,30 @@ declare(strict_types=1);
 
 namespace Realforce\Finance\Rates;
 
+use Mattiasgeniar\Percentage\Percentage;
 use Realforce\Finance\Base\Rate;
-use Realforce\Finance\Calculator;
+use Realforce\Finance\Calculation;
 use Realforce\Finance\Traits\TaxAgeRate;
 use Realforce\Finance\Traits\TaxChildrenRate;
 
+/**
+ * Class TaxCountryRate
+ * @package Realforce\Finance\Rates
+ */
 class TaxCountryRate extends Rate
 {
     use TaxAgeRate;
     use TaxChildrenRate;
 
-    private float $tax_rate = 0.2;
     /**
-     * @var Calculator
+     * Country tax rate in %
+     * @var float
      */
-    private Calculator $calculator;
+    private float $tax_rate = 20;
+    /**
+     * @var Calculation
+     */
+    private Calculation $calculator;
 
     public function getTaxRate(): float
     {
@@ -31,13 +40,15 @@ class TaxCountryRate extends Rate
         return $this;
     }
 
-    public function calc(Calculator $calculator): float
+    public function calc(Calculation $calculator): float
     {
         $this->calculator = $calculator;
 
         $this->checkAgeRate();
         $this->checkChildrenRate();
 
-        return $this->calculator->getSalary()->getAmount() * $this->getTaxRate();
+        $salaryAmount = $this->calculator->getSalary()->getAmount();
+        $taxAmount = Percentage::of($this->getTaxRate(), $salaryAmount);
+        return $salaryAmount - $taxAmount;
     }
 }
