@@ -91,10 +91,11 @@ class TaxCountryRate extends Rate
 
         $this->checkAgeRate();
         $this->checkChildrenRate();
+        // TODO: Deduct from  gross or net salary?
         $this->checkUseCompanyCar();
 
-        $salaryAmount = $salary->getAmount();
-        $taxAmount = Percentage::of($this->getTaxRate(), $salaryAmount);
-        return $salaryAmount - $taxAmount;
+        $taxAmount = Percentage::of($this->getTaxRate(), $salary->getAmount());
+
+        return $salary->getAmount() - $taxAmount;
     }
 }
