@@ -29,7 +29,7 @@
     "scripts": {
         "checkcode": "phpcs src tests --standard=PSR12",
         "fixcode": "phpcbf src tests --standard=PSR12",
-        "test": "phpunit --debug",
+        "test-debug": "phpunit --debug",
         "tests": "phpunit",
         "test-coverage": "phpunit --coverage-html build/coverage",
         "check-cs": "ecs check src tests --ansi",

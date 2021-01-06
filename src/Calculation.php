@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Realforce\Finance;
 
 use Realforce\Finance\Rates\TaxCountryRate;
-use Realforce\Finance\Traits\TaxAgeRate;
-use Realforce\Finance\Traits\TaxChildrenRate;
 
 /**
  * Class Calculator

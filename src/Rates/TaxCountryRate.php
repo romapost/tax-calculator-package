@@ -7,10 +7,10 @@ namespace Realforce\Finance\Rates;
 use Mattiasgeniar\Percentage\Percentage;
 use Realforce\Finance\Base\Person;
 use Realforce\Finance\Base\Rate;
-use Realforce\Finance\Calculation;
 use Realforce\Finance\Salary;
 use Realforce\Finance\Traits\TaxAgeRate;
 use Realforce\Finance\Traits\TaxChildrenRate;
+use Realforce\Finance\Traits\UseCompanyCar;
 
 /**
  * Class TaxCountryRate
@@ -37,6 +37,7 @@ class TaxCountryRate extends Rate
     }
     use TaxAgeRate;
     use TaxChildrenRate;
+    use UseCompanyCar;
 
     /**
      * Country tax rate in %
@@ -90,6 +91,7 @@ class TaxCountryRate extends Rate
 
         $this->checkAgeRate();
         $this->checkChildrenRate();
+        $this->checkUseCompanyCar();
 
         $salaryAmount = $salary->getAmount();
         $taxAmount = Percentage::of($this->getTaxRate(), $salaryAmount);

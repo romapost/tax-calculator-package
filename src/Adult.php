@@ -17,6 +17,29 @@ final class Adult extends Person
      */
     private array $children;
 
+    /**
+     * @var bool
+     */
+    private bool $use_company_car = false;
+
+    /**
+     * @return bool
+     */
+    public function isUseCompanyCar(): bool
+    {
+        return $this->use_company_car;
+    }
+
+    /**
+     * @param bool $use_company_car
+     * @return Adult
+     */
+    public function setUseCompanyCar(bool $use_company_car): Adult
+    {
+        $this->use_company_car = $use_company_car;
+        return $this;
+    }
+
     public function __construct(string $name, int $age, array $children)
     {
         parent::__construct($name, $age);

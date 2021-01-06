@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Realforce\Finance\Base;
 
-use Realforce\Finance\Child;
-
 /**
  * Class Person
  * @package Realforce\Finance\Base

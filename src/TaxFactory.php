@@ -13,7 +13,10 @@ class TaxFactory
 {
     public function build(string $className): Rate
     {
-        return self::newClass($className);
+        try {
+            return self::newClass($className);
+        } catch (FactoryClassNotFoundException $e) {
+        }
     }
 
     protected static function newClass(string $className): Rate
