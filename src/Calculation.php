@@ -50,6 +50,6 @@ final class Calculation
     final public function calc(Salary $salary): float
     {
         $className = self::TAX_RATE_CLASS;
-        return (new $className())->calc($this->getPerson(), $salary);
+        return (new TaxFactory())->build($className)->calc($this->getPerson(), $salary);
     }
 }
