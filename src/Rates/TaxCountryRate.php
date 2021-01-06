@@ -84,6 +84,11 @@ class TaxCountryRate extends Rate
         return $this;
     }
 
+    /**
+     * @param Person $person
+     * @param Salary $salary
+     * @return float
+     */
     public function calc(Person $person, Salary $salary): float
     {
         $this->setPerson($person);
