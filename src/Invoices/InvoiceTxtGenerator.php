@@ -11,6 +11,6 @@ class InvoiceTxtGenerator extends InvoiceGenerator
 {
     public function make(): Invoice
     {
-        // TODO: Implement make() method.
+        return new Invoice();
     }
 }

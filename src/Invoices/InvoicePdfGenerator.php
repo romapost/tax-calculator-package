@@ -11,5 +11,6 @@ class InvoicePdfGenerator extends InvoiceGenerator
 {
     public function make(): Invoice
     {
+        return new Invoice();
     }
 }
