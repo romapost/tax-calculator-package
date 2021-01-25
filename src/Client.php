@@ -19,6 +19,24 @@ class Client
         $this->invoiceGenerator = $invoiceGenerator;
     }
 
+    /**
+     * @return InvoiceGenerator|null
+     */
+    public function getInvoiceGenerator(): ?InvoiceGenerator
+    {
+        return $this->invoiceGenerator;
+    }
+
+    /**
+     * @param InvoiceGenerator|null $invoiceGenerator
+     * @return Client
+     */
+    public function setInvoiceGenerator(?InvoiceGenerator $invoiceGenerator): Client
+    {
+        $this->invoiceGenerator = $invoiceGenerator;
+        return $this;
+    }
+
     public function saveInvoice(): Invoice
     {
         return $this->invoiceGenerator->make();
