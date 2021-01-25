@@ -6,7 +6,6 @@ namespace Realforce\Finance\Rates;
 
 use Mattiasgeniar\Percentage\Percentage;
 use Realforce\Finance\Adult;
-use Realforce\Finance\Base\Person;
 use Realforce\Finance\Base\Rate;
 use Realforce\Finance\Salary;
 use Realforce\Finance\Traits\TaxAgeRate;
@@ -19,60 +18,46 @@ use Realforce\Finance\Traits\UseCompanyCar;
  */
 class TaxCountryRate extends Rate
 {
-    /**
-     * Country tax rate in %
-     * @var float
-     */
-    private float $tax_rate = 20;
-
-    /**
-     * @var Adult
-     */
-    private Adult $person;
-
-    /**
-     * @return Adult
-     */
-    public function getPerson(): Adult
-    {
-        return $this->person;
-    }
-
-    /**
-     * @param Adult $person
-     * @return TaxCountryRate
-     */
-    public function setPerson(Adult $person): TaxCountryRate
-    {
-        $this->person = $person;
-        return $this;
-    }
     use TaxAgeRate;
     use TaxChildrenRate;
     use UseCompanyCar;
 
     /**
-     * @return Salary
+     * Country tax rate in %
      */
+    private float $tax_rate = 20;
+
+
+    private Adult $person;
+
+
+    private Salary $salary;
+
+
+    public function getPerson(): Adult
+    {
+        return $this->person;
+    }
+
+
+    public function setPerson(Adult $person): self
+    {
+        $this->person = $person;
+        return $this;
+    }
+
+
     public function getSalary(): Salary
     {
         return $this->salary;
     }
 
-    /**
-     * @param Salary $salary
-     * @return TaxCountryRate
-     */
-    public function setSalary(Salary $salary): TaxCountryRate
+
+    public function setSalary(Salary $salary): self
     {
         $this->salary = $salary;
         return $this;
     }
-
-    /**
-     * @var Salary
-     */
-    private Salary $salary;
 
     public function getTaxRate(): float
     {
@@ -85,11 +70,7 @@ class TaxCountryRate extends Rate
         return $this;
     }
 
-    /**
-     * @param Adult $person
-     * @param Salary $salary
-     * @return float
-     */
+
     public function calc(Adult $person, Salary $salary): float
     {
         $this->setPerson($person);

@@ -9,10 +9,9 @@ use Realforce\Finance\Immutable;
 
 class ImmutableTest extends TestCase
 {
-
     public function testImmutable(): void
     {
         $class = Immutable::withProperty('test');
-        $this->assertEquals('test', $class->getProperty());
+        $this->assertSame('test', $class->getProperty());
     }
 }

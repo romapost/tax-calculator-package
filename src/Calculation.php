@@ -17,21 +17,16 @@ final class Calculation
      */
     private const TAX_RATE_CLASS = TaxCountryRate::class;
 
-    /**
-     * @var Adult
-     */
+
     private Adult $person;
 
-    /**
-     * @return Adult
-     */
+
     public function getPerson(): Adult
     {
         return $this->person;
     }
 
     /**
-     * @param Adult $person
      * @return $this
      */
     public function setPerson(Adult $person): self
@@ -42,8 +37,6 @@ final class Calculation
 
     /**
      * Calc method
-     * @param Salary $salary
-     * @return float
      */
     final public function calc(Salary $salary): float
     {

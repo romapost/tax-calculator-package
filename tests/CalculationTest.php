@@ -28,7 +28,6 @@ class CalculationTest extends TestCase
 
     public function testCalc(): void
     {
-
         $person = new Adult('Alice', 26, [new Child('Child1', 3), new Child('Child2', 5)]);
         $salary = $this->calculator->setPerson($person)->calc(new Salary(6000));
 
@@ -58,7 +57,6 @@ class CalculationTest extends TestCase
 
     public function testCalcCompanyCar(): void
     {
-
         $person = new Adult('Alice', 26, [new Child('Child1', 3), new Child('Child2', 5)]);
         $person->setUseCompanyCar(true);
         $salary = $this->calculator->setPerson($person)->calc(new Salary(6000));
