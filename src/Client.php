@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace Realforce\Finance;
 
-use Realforce\Finance\Interfaces\IInvoiceGenerator;
+use Realforce\Finance\Base\InvoiceGenerator;
 
 class Client
 {
-    private ?IInvoiceGenerator $invoiceGenerator;
+    private ?InvoiceGenerator $invoiceGenerator;
 
     /**
      * Client constructor.
+     * @param InvoiceGenerator|null $invoiceGenerator
      */
-    public function __construct(?IInvoiceGenerator $invoiceGenerator)
+    public function __construct(?InvoiceGenerator $invoiceGenerator)
     {
         $this->invoiceGenerator = $invoiceGenerator;
     }
