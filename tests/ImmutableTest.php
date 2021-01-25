@@ -24,9 +24,7 @@ class ImmutableTest extends TestCase
             // Try clone immutable object
             $clone = clone $class;
             $this->exceptException(\BadMethodCallException::class);
-
         } catch (\BadMethodCallException $exception) {
-
         }
     }
 }

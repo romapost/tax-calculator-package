@@ -10,6 +10,8 @@ namespace Realforce\Finance;
  */
 final class Immutable
 {
+    use Traits\Immutable;
+
     /**
      * @var string
      */
@@ -22,16 +24,6 @@ final class Immutable
     private function __construct(string $property)
     {
         $this->property = $property;
-    }
-
-    public function __set($name, $value)
-    {
-        throw new \BadMethodCallException("Cannot add new property \$$name to instance of " . __CLASS__);
-    }
-
-    private function __clone()
-    {
-        throw new \BadMethodCallException("Cannot clone object of instance " . __CLASS__);
     }
 
     /**
